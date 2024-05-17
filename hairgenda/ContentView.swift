@@ -50,7 +50,7 @@ struct ContentView: View {
               Text(step.rawValue).foregroundColor(Color.pink)
             }
           }.pickerStyle(.segmented)
-            .foregroundColor(Color.pink)
+            .colorMultiply(segmentedColor)
         }
         //        HStack {
         //          Text(selectedStep.rawValue).font(.system(size: 24, weight: .semibold, design: .rounded))
@@ -66,18 +66,18 @@ struct ContentView: View {
         DatePicker("Hidratação", selection: $date, displayedComponents: .date)
           .font(.system(size: 24, weight: .semibold, design: .rounded))
           .datePickerStyle(.compact)
-                DatePicker("Please enter a date", selection: $wakeUp, displayedComponents: .date)
-                  .labelsHidden()
-                  .tint(.pink)
-                  .datePickerStyle(.graphical)
-                  .padding()
+        DatePicker("Please enter a date", selection: $wakeUp, displayedComponents: .date)
+          .labelsHidden()
+          .tint(.pink)
+          .datePickerStyle(.graphical)
+          .padding()
         HStack{
           Spacer()
           Button("Realizar cálculo mensal") {
             
           }
-          .frame(width: 180)
-          .font(.system(size: 14, weight: .bold, design: .rounded))
+          .frame(width: 220)
+          .font(.system(size: 18, weight: .bold, design: .rounded))
           .padding()
           .background(Color.purpleButton)
           .foregroundStyle(Color.white)
@@ -92,6 +92,16 @@ struct ContentView: View {
         Spacer()
       }
       .padding()
+    }
+  }
+  var segmentedColor: Color {
+    switch selectedStep {
+    case .hydrate:
+      return Color.lightPink
+    case .nutrition:
+      return Color.lightGreen
+    case .restoration:
+      return Color.lightBlue
     }
   }
 }
