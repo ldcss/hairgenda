@@ -13,7 +13,6 @@ struct CustomCalendarPickerView: View {
   
     var body: some View {
       VStack{
-        Text("hello Worlds")
         Spacer()
         MultiDatePicker("Select a date", selection: $dates)
           .frame(maxHeight: 200)

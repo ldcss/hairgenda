@@ -12,7 +12,6 @@ struct hairgendaApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-//          CustomCalendarPickerView()
         }
     }
 }
