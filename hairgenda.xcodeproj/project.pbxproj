@@ -12,6 +12,7 @@
 		6A4C7DC42BF4F73000AEB542 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DC32BF4F73000AEB542 /* Step.swift */; };
 		6A4C7DCD2BFB7FFF00AEB542 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DCC2BFB7FFF00AEB542 /* CalendarView.swift */; };
 		6A4C7DCF2BFB808300AEB542 /* CalendarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DCE2BFB808300AEB542 /* CalendarScene.swift */; };
+		6A4C7DD32BFCEDA600AEB542 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DD22BFCEDA600AEB542 /* SheetView.swift */; };
 		6A6D89502BF4DC8900559FC4 /* hairgendaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D894F2BF4DC8900559FC4 /* hairgendaApp.swift */; };
 		6A6D89522BF4DC8900559FC4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D89512BF4DC8900559FC4 /* ContentView.swift */; };
 		6A6D89542BF4DC8A00559FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A6D89532BF4DC8A00559FC4 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		6A4C7DC32BF4F73000AEB542 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		6A4C7DCC2BFB7FFF00AEB542 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		6A4C7DCE2BFB808300AEB542 /* CalendarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScene.swift; sourceTree = "<group>"; };
+		6A4C7DD22BFCEDA600AEB542 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		6A6D894C2BF4DC8900559FC4 /* hairgenda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hairgenda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6D894F2BF4DC8900559FC4 /* hairgendaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hairgendaApp.swift; sourceTree = "<group>"; };
 		6A6D89512BF4DC8900559FC4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				6A4C7DCC2BFB7FFF00AEB542 /* CalendarView.swift */,
 				6A4C7DCE2BFB808300AEB542 /* CalendarScene.swift */,
+				6A4C7DD22BFCEDA600AEB542 /* SheetView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				6A4C7DCF2BFB808300AEB542 /* CalendarScene.swift in Sources */,
 				6A6D89502BF4DC8900559FC4 /* hairgendaApp.swift in Sources */,
 				6A4C7DBC2BF4DD5400AEB542 /* StyleGuide.swift in Sources */,
+				6A4C7DD32BFCEDA600AEB542 /* SheetView.swift in Sources */,
 				6A4C7DC22BF4E0A700AEB542 /* Curvatures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

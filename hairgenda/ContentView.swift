@@ -12,78 +12,85 @@ struct ContentView: View {
   @State private var selectedCurvature: Curvature = .none
   @State private var selectedStep: Step = .hydrate
   @State private var showPicker: Bool = false
-  @State private var date: Date = Date.now
-  @State
-  @State private var dates: [SelectedDate] = [SelectedDate(date: Date.now, step: "Hidratação"), SelectedDate(date: Date.now, step: "Nutrição"), SelectedDate(date: Date.now, step: "Restauração")]
+  @State var shouldPresentSheet = false
+  @State private var hydrateDate: Date = Date.now
+  @State private var nutritionDate: Date = Date.now
+  @State private var restorationDate: Date = Date.now
   
   var body: some View {
     VStack{
-    Text("Hairgenda").font(.display)
-    ScrollView {
-      VStack{
-        VStack(alignment: .leading, spacing: 20) {
-          HStack {
-            Text("Curvatura").font(.system(size: 24, weight: .semibold, design: .rounded))
-            Spacer()
-            Menu {
-              Picker("Curvatura", selection: $selectedCurvature) {
-                ForEach(Curvature.allCases) { curvature in
-                  Text(curvature.rawValue)
+      Text("Hairgenda").font(.display).frame(maxHeight: 50)
+      ScrollView {
+        VStack{
+          VStack(alignment: .leading, spacing: 20) {
+            HStack {
+              Text("Curvatura").font(.system(size: 24, weight: .semibold, design: .rounded))
+              Spacer()
+              Menu {
+                Picker("Curvatura", selection: $selectedCurvature) {
+                  ForEach(Curvature.allCases) { curvature in
+                    Text(curvature.rawValue)
+                  }
+                }
+              } label: {
+                Text(selectedCurvature.rawValue)
+                  .padding()
+                  .frame(maxHeight: 30)
+                  .font(.system(size: 20, weight: .regular, design: .rounded))
+                  .foregroundStyle(.black)
+                  .background(Color.backgroundGray)
+                  .clipShape(RoundedRectangle(cornerRadius: 8))
+              }
+              .padding()
+              .frame(maxHeight: 30)
+            }
+            VStack(alignment: .leading, spacing: 12) {
+              Text("Etapas do cronograma").font(.system(size: 24, weight: .semibold, design: .rounded))
+              
+              Text("Selecione a etapa e clique no dia do seu início").font(.system(size: 16, weight: .semibold, design: .rounded))
+              Picker("Etapas", selection: $selectedStep) {
+                ForEach(Step.allCases) { step in
+                  Text(step.rawValue).foregroundColor(Color.pink)
+                }
+              }.pickerStyle(.segmented)
+                .colorMultiply(segmentedColor)
+            }
+            
+            VStack(alignment: .leading, spacing: 0){
+              stepPicker
+              
+              CalendarView(canSelect: false, hydrateDate: $hydrateDate,  nutritionDate: $nutritionDate,
+                           restorationDate: $restorationDate)
+              .frame(height:400)
+            }
+            
+            HStack{
+              Spacer()
+              Button("Realizar cálculo mensal") {
+                shouldPresentSheet.toggle()
+              }
+              .frame(width: 220)
+              .font(.system(size: 18, weight: .bold, design: .rounded))
+              .padding()
+              .background(Color.purpleButton)
+              .foregroundStyle(Color.white)
+              .clipShape(RoundedRectangle(cornerRadius:14))
+              .onTapGesture {
+                withAnimation(.easeInOut) {
                 }
               }
-            } label: {
-              Text(selectedCurvature.rawValue)
-                .padding()
-                .frame(maxHeight: 30)
-                .font(.system(size: 20, weight: .regular, design: .rounded))
-                .foregroundStyle(.black)
-                .background(Color.backgroundGray)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-            }
-            .padding()
-            .frame(maxHeight: 30)
-          }
-          VStack(alignment: .leading, spacing: 12) {
-            Text("Etapas do cronograma").font(.system(size: 24, weight: .semibold, design: .rounded))
-            
-            Text("Selecione a etapa e clique no dia do seu início").font(.system(size: 16, weight: .semibold, design: .rounded))
-            Picker("Etapas", selection: $selectedStep) {
-              ForEach(Step.allCases) { step in
-                Text(step.rawValue).foregroundColor(Color.pink)
-              }
-            }.pickerStyle(.segmented)
-              .colorMultiply(segmentedColor)
-          }
-          DatePicker(selectedStep.rawValue, selection: $date, displayedComponents: .date)
-            .font(.system(size: 24, weight: .semibold, design: .rounded))
-            .datePickerStyle(.compact)
-            .tint(segmentedColor)
-          
-          CalendarView(canSelect: false, selectedDate: $date, selectedDates: dates)
-          HStack{
-            Spacer()
-            Button("Realizar cálculo mensal") {
-              print("date")
-              print(date)
-            }
-            .frame(width: 220)
-            .font(.system(size: 18, weight: .bold, design: .rounded))
-            .padding()
-            .background(Color.purpleButton)
-            .foregroundStyle(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius:14))
-            .onTapGesture {
-              withAnimation(.easeInOut) {
-                print("teste")
-              }
+              Spacer()
             }
             Spacer()
           }
-          Spacer()
+          .padding()
         }
-        .padding()
+        .sheet(isPresented: $shouldPresentSheet) {
+          print("Sheet dismissed!")
+        } content: {
+          SheetView()
+        }
       }
-    }
     }
   }
   var segmentedColor: Color {
@@ -94,6 +101,26 @@ struct ContentView: View {
       return Color.lightGreen
     case .restoration:
       return Color.lightBlue
+    }
+  }
+  
+  var stepPicker: some View {
+    switch selectedStep {
+    case .hydrate:
+      return DatePicker(selectedStep.rawValue, selection: $hydrateDate, displayedComponents: .date)
+        .font(.system(size: 24, weight: .semibold, design: .rounded))
+        .datePickerStyle(.compact)
+        .tint(segmentedColor)
+    case .nutrition:
+      return DatePicker(selectedStep.rawValue, selection: $nutritionDate, displayedComponents: .date)
+        .font(.system(size: 24, weight: .semibold, design: .rounded))
+        .datePickerStyle(.compact)
+        .tint(segmentedColor)
+    case .restoration:
+      return DatePicker(selectedStep.rawValue, selection: $restorationDate, displayedComponents: .date)
+        .font(.system(size: 24, weight: .semibold, design: .rounded))
+        .datePickerStyle(.compact)
+        .tint(segmentedColor)
     }
   }
 }

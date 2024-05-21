@@ -20,8 +20,8 @@ struct CalendarScene: View {
       VStack{
         Text("Calendars Go Here!")
         Spacer()
-        CalendarView( canSelect: true, selectedDate: $selectedDate)
-          .scaledToFit()
+//        CalendarView(selectedDate: $selectedDate)
+//          .scaledToFit()
         Spacer()
       }.padding()
     }
