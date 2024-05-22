@@ -10,6 +10,8 @@ import SwiftUI
 struct CalendarScene: View {
   @State private var selectedDate: Date = Date.now
   
+  @State private var isSelected: Bool = false
+  
   private var textDate: String {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
@@ -22,6 +24,13 @@ struct CalendarScene: View {
         Spacer()
 //        CalendarView(selectedDate: $selectedDate)
 //          .scaledToFit()
+        Group {
+          Toggle("Teste", isOn: $isSelected)
+            .labelsHidden()
+            .toggleStyle(.checklist)
+            .font(.title)
+            .tint(.black)
+        }
         Spacer()
       }.padding()
     }
