@@ -8,24 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-  
   @State private var selectedCurvature: Curvature = .none
   @State private var selectedStep: Step = .hydrate
   @State private var showPicker: Bool = false
   @State var shouldPresentSheet = false
   @State private var showImage: Bool = false
+  
   @State private var initialDate: Date = Date()
   @State private var hydrateSelected:Bool = false
   @State private var nutritionSelected:Bool = false
   @State private var restorationSelected:Bool = false
   
-  @State private var productValue: Decimal = 0.0
+  @ObservedObject private var currencyManagerBR = CurrencyManager.initial
   
   @State private var daysNumber: Double = 20
   
-  @State private var result: Decimal = 0
-  
-  var contentViewModel = ContentViewModel()
+  @State private var result: Double = 0
   
   var body: some View {
     VStack(spacing: 8){
@@ -34,13 +32,13 @@ struct ContentView: View {
         Spacer()
         Text("Hairgenda").font(.display).frame(maxHeight: 50)
         Spacer()
-      }.frame(width: .infinity)
+      }
       
       VStack(alignment: .leading, spacing: 32) {
         
         VStack(alignment: .leading, spacing: 12){
           HStack {
-            Text("Curvatura").font(.system(size: 24, weight: .semibold, design: .rounded))
+            Text("Curvatura").font(.system(size: 23, weight: .semibold, design: .rounded))
             Spacer()
             Menu {
               Picker("Curvatura", selection: $selectedCurvature) {
@@ -81,14 +79,20 @@ struct ContentView: View {
         }
         
         DatePicker("Início do cronograma", selection: $initialDate, displayedComponents: .date)
-          .font(.system(size: 24, weight: .semibold, design: .rounded))
+          .lineLimit(nil)
+          .multilineTextAlignment(.leading)
+          .font(.system(size: 23, weight: .semibold, design: .rounded))
           .datePickerStyle(.compact)
           .tint(Color.green)
         
         VStack(alignment: .leading, spacing: 12) {
-          Text("Etapas do cronograma").font(.system(size: 24, weight: .semibold, design: .rounded))
+          Text("Etapas do cronograma").font(.system(size: 23, weight: .semibold, design: .rounded))
           
-          Text("Selecione as etapas que estarão em seu cronograma!").font(.system(size: 16, weight: .semibold, design: .rounded))
+          Text("Selecione as etapas que estarão em seu \n cronograma!")
+            .frame(height: 40)
+            .font(.system(size: 16, weight: .semibold, design: .rounded))
+            .lineLimit(nil)
+            .multilineTextAlignment(.leading)
           
           CustomCheckbox(CheckboxLabel: "Hidratação", isSelected: $hydrateSelected, popoverText: "A hidratação capilar repõe toda a água que seus fios perderam no decorrer dos dias.")
           
@@ -99,13 +103,18 @@ struct ContentView: View {
         
         VStack(alignment: .leading, spacing: 12){
           Text("Valor total dos produtos")
-            .font(.system(size: 24, weight: .semibold, design: .rounded))
-          MoneyTextFieldView(amount: $productValue)
+            .font(.system(size: 23, weight: .semibold, design: .rounded))
+          
+          TextField(currencyManagerBR.string, text: $currencyManagerBR.string)
+            .keyboardType(.numberPad)
+            .onChange(of: currencyManagerBR.string, perform: currencyManagerBR.valueChanged)
+            .textFieldStyle(.roundedBorder)
+            .tint(.black)
         }
         
         VStack(alignment: .leading, spacing: 12){
           Text("Tempo esperado de uso ")
-            .font(.system(size: 24, weight: .semibold, design: .rounded))
+            .font(.system(size: 23, weight: .semibold, design: .rounded))
           
           Stepper("Número de dias: \(Int(daysNumber))",
                   value: $daysNumber,
@@ -117,7 +126,13 @@ struct ContentView: View {
         HStack{
           Spacer()
           Button("Realizar cálculo mensal") {
-            result = productValue / Decimal(daysNumber)
+            
+            guard let productValue = currencyManagerBR.doubleValue
+            else { return }
+            
+            result =
+            Double(String(format: "%.2f", (productValue / (daysNumber / 30)))) ?? 0.0
+            
             shouldPresentSheet.toggle()
             
           }
@@ -133,9 +148,8 @@ struct ContentView: View {
       }
       .padding()
       .sheet(isPresented: $shouldPresentSheet) {
-        print("Sheet dismissed!")
       } content: {
-        SheetView(isPresented: $shouldPresentSheet, selectedCurvature: $selectedCurvature, result: result, hydrate: $hydrateSelected, nutrition: $nutritionSelected, restoration: $restorationSelected)
+        SheetView(isPresented: $shouldPresentSheet, selectedCurvature: $selectedCurvature, result: $result, hydrate: $hydrateSelected, nutrition: $nutritionSelected, restoration: $restorationSelected)
       }
       
     }

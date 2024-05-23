@@ -23,6 +23,7 @@
 		6AB951852BFE452E00F01351 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB951842BFE452E00F01351 /* TimePeriod.swift */; };
 		6AB951872BFE473700F01351 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB951862BFE473700F01351 /* ChipView.swift */; };
 		6AB951892BFF63C400F01351 /* MoneyTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB951882BFF63C400F01351 /* MoneyTextFieldView.swift */; };
+		6AB9518D2BFFB4E700F01351 /* FormatNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB9518C2BFFB4E700F01351 /* FormatNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		6AB951842BFE452E00F01351 /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
 		6AB951862BFE473700F01351 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
 		6AB951882BFF63C400F01351 /* MoneyTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTextFieldView.swift; sourceTree = "<group>"; };
+		6AB9518C2BFFB4E700F01351 /* FormatNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				6A4C7DCE2BFB808300AEB542 /* CalendarScene.swift */,
 				6AB951882BFF63C400F01351 /* MoneyTextFieldView.swift */,
 				6A4C7DD22BFCEDA600AEB542 /* SheetView.swift */,
+				6AB9518C2BFFB4E700F01351 /* FormatNumber.swift */,
 				6A4C7DD82BFE1A8600AEB542 /* CustomCheckbox.swift */,
 				6AB951862BFE473700F01351 /* ChipView.swift */,
 			);
@@ -210,6 +213,7 @@
 				6A4C7DBC2BF4DD5400AEB542 /* StyleGuide.swift in Sources */,
 				6A4C7DD92BFE1A8600AEB542 /* CustomCheckbox.swift in Sources */,
 				6A4C7DD32BFCEDA600AEB542 /* SheetView.swift in Sources */,
+				6AB9518D2BFFB4E700F01351 /* FormatNumber.swift in Sources */,
 				6A4C7DC22BF4E0A700AEB542 /* Curvatures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

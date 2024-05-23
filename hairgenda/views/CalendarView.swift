@@ -45,16 +45,8 @@ struct CalendarView: UIViewRepresentable {
     uiView.calendar = calendar
     uiView.availableDateRange = dateInterval
     context.coordinator.calendarIdentifier = calendarIdentifier
-    var components = Set<DateComponents>() // faz um for q insere todas as datas com components.insert
-    //    components.insert(calendar.dateComponents([.month, .day, .year], from: hydrateDate))
-    //    components.insert(calendar.dateComponents([.month, .day, .year], from: nutritionDate))
-    //    components.insert(calendar.dateComponents([.month, .day, .year], from: restorationDate))
-    //    print("components", components)
-    //    context.coordinator.hydrateDate = hydrateDate
-    //    context.coordinator.nutritionDate = nutritionDate
-    //    context.coordinator.restorationDate = restorationDate
+    var components = Set<DateComponents>()
     uiView.reloadDecorations(forDateComponents: Array(components), animated: true)
-    //
   }
 }
 
@@ -86,10 +78,7 @@ final class CalendarCoordinator: NSObject, UICalendarViewDelegate {
   }
   
   func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
-//    print(daysPerSteps)
-//    print(indexDaysPerSteps)
-//    print(indexToDays)
-    guard let date = calendar.date(from:dateComponents) //dia iterado
+    guard let date = calendar.date(from:dateComponents)
     else { return nil }
     
     var month = calendar.component(.month, from: date)
@@ -97,9 +86,6 @@ final class CalendarCoordinator: NSObject, UICalendarViewDelegate {
     if month != calendar.component(.month, from: currentDate){
       return nil
     }
-//    print(date)
-//    print(month)
-    
     
     if calendar.component(.day, from: date) % intervalDays != 1  {
       return nil
@@ -116,29 +102,6 @@ final class CalendarCoordinator: NSObject, UICalendarViewDelegate {
       return .default(color: .lightGreen, size: .large)
     }
     return nil
-    //    print("DATE", date)
-    //    print("hydrate", hydrateDate)
-    //    print("nutrition", nutritionDate)
-    //    print("restoration", restorationDate)
-    
-//    guard let actualDate = calendar.date(from: dateComponents)
-//    else {return nil}
-    
-    //    if calendar.isDate(actualDate, equalTo: hydrateDate, toGranularity: .day){
-    //      return .default(color: .lightPink, size: .large)
-    //    }
-    //
-    //    else if calendar.isDate(actualDate, equalTo: restorationDate, toGranularity: .day){
-    //      return .default(color: .lightGreen, size: .large)
-    //    }
-    //
-    //    else if calendar.isDate(actualDate, equalTo: nutritionDate, toGranularity: .day){
-    //      return .default(color: .lightBlue, size: .large)
-    //    }
-    
-    //    else {
-//    return nil
-    //    }
   }
   
   var daysPerSteps: [[String]] {

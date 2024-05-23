@@ -24,14 +24,6 @@ struct MoneyTextFieldView: View {
   var body: some View {
     
     VStack {
-      Text(formattedAmount)
-        .onAppear {
-          formattedAmount = currencyFormatter.string(from: amount as NSNumber) ?? ""
-        }
-        .onChange(of: amount) { newValue in
-          formattedAmount = currencyFormatter.string(from: newValue as NSNumber) ?? ""
-        }
-      
       TextField("Amount", text: Binding(
         get: {
           formattedAmount
@@ -45,9 +37,11 @@ struct MoneyTextFieldView: View {
           }
         }
       ))
-      .keyboardType(.decimalPad)
+      .keyboardType(.numberPad)
       .textFieldStyle(.roundedBorder)
+      .clipShape(RoundedRectangle(cornerRadius: 20))
       .tint(.black)
+      
     }
     
   }

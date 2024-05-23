@@ -15,9 +15,7 @@ struct SheetView: View {
   
   @Binding var selectedCurvature: Curvature
   
-  @State var result: Decimal
-  
-  
+  @Binding var result: Double
   
   @Binding var hydrate: Bool
   @Binding var nutrition: Bool
@@ -26,11 +24,11 @@ struct SheetView: View {
   var resultByTime: String {
     switch timePeriod {
     case .monthly:
-      return "Você irá gastar R$ \(result) esse mês!"
+      return "Você irá gastar R$ \(result) em um mês!"
     case .semiannually:
-      return "Você irá gastar R$ \(result * 6) esse mês!"
+      return "Você irá gastar R$ \(result * 6) em um semestre!"
     case .yearly:
-      return "Você irá gastar R$ \(result * 12) esse mês!"
+      return "Você irá gastar R$ \(result * 12) em um ano!"
     }
   }
   
