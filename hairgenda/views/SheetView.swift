@@ -21,27 +21,47 @@ struct SheetView: View {
   @Binding var nutrition: Bool
   @Binding var restoration: Bool
   
+  @Binding var initialDate: Date
+  
+  func formatToBrazilianCurrency(value: Double) -> String {
+      let formatter = NumberFormatter()
+      formatter.numberStyle = .currency
+      formatter.currencySymbol = "R$ "
+      formatter.locale = Locale(identifier: "pt_BR")
+      formatter.minimumFractionDigits = 2
+      formatter.maximumFractionDigits = 2
+      
+      if let formattedString = formatter.string(from: NSNumber(value: value)) {
+          return formattedString
+      } else {
+          return ""
+      }
+  }
+
+  
   var resultByTime: String {
     switch timePeriod {
     case .monthly:
-      return "Você irá gastar R$ \(result) em um mês!"
+      return "Você irá gastar R$ " + (self.formatToBrazilianCurrency(value: result)) + " em um mês!"
     case .semiannually:
-      return "Você irá gastar R$ \(result * 6) em um semestre!"
+      return "Você irá gastar R$ " + (self.formatToBrazilianCurrency(value: result * 6)) + " em um semestre!"
     case .yearly:
-      return "Você irá gastar R$ \(result * 12) em um ano!"
+      return "Você irá gastar R$ " + (self.formatToBrazilianCurrency(value: result * 12)) + " em um ano!"
     }
   }
   
+  
   var body: some View {
-    HStack{
-      RoundedRectangle(cornerRadius: 20)
-        .foregroundStyle(.black)
-        .background(.black)
-        .padding()
-    }.frame(width:40)
     
     VStack(spacing: 8){
-      Text("Período de cálculo").font(.system(size: 24, weight: .semibold, design: .rounded))
+
+      Capsule()
+        .frame(width: 120, height: 10)  // Adjust the width and height as needed
+        .foregroundColor(.black)         // Set the color of the line
+        .padding()
+      
+      Text("Período de cálculo").font(.system(size: 23, weight: .semibold, design: .rounded))
+      
       Picker("Etapas", selection: $timePeriod) {
         ForEach(TimePeriod.allCases) { timePeriod in
           Text(timePeriod.rawValue)
@@ -50,6 +70,9 @@ struct SheetView: View {
       VStack(alignment: .center, spacing: 8){
         Text(resultByTime)
           .font(.system(size: 20, weight: .semibold, design: .rounded))
+          .lineLimit(nil)
+          .multilineTextAlignment(.center)
+          .frame(height: 60)
         
         HStack(spacing: 12){
           ChipView(systemImage: "drop", titleKey: "Hidratação", tint: Color.lightPink)
@@ -58,7 +81,7 @@ struct SheetView: View {
           
           ChipView(systemImage: "arrow.clockwise", titleKey: "Restauração", tint: Color.lightBlue)
         }
-        CalendarView(hydrate: $hydrate, nutrition: $nutrition, restoration: $restoration, selectedCurvature: $selectedCurvature)
+        CalendarView(hydrate: $hydrate, nutrition: $nutrition, restoration: $restoration, selectedCurvature: $selectedCurvature, initialDate: $initialDate)
           .frame(height:500)
         
       }

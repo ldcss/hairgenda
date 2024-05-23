@@ -14,6 +14,7 @@ struct CalendarView: UIViewRepresentable {
   @Binding var nutrition: Bool
   @Binding var restoration: Bool
   @Binding var selectedCurvature: Curvature
+  @Binding var initialDate: Date
   
   var dateInterval: DateInterval {
     let calendar = Calendar(identifier: calendarIdentifier)
@@ -26,7 +27,7 @@ struct CalendarView: UIViewRepresentable {
   }
   
   func makeCoordinator() -> CalendarCoordinator {
-    CalendarCoordinator(calendarIdentifier: calendarIdentifier, hydrate: self.hydrate, nutrition: self.nutrition, restoration: self.restoration, selectedCurvature: self.selectedCurvature)
+    CalendarCoordinator(calendarIdentifier: calendarIdentifier, hydrate: self.hydrate, nutrition: self.nutrition, restoration: self.restoration, selectedCurvature: self.selectedCurvature, initialDate: self.initialDate)
   }
   
   func makeUIView(context: Context) -> UICalendarView {
@@ -58,6 +59,8 @@ final class CalendarCoordinator: NSObject, UICalendarViewDelegate {
   var nutrition: Bool
   var restoration: Bool
   
+  var initialDate: Date
+  
   var indexToDays: Int = 0
   
   var currentDate: Date = Date.now
@@ -69,25 +72,26 @@ final class CalendarCoordinator: NSObject, UICalendarViewDelegate {
   }
   
   
-  init(calendarIdentifier: Calendar.Identifier, hydrate: Bool, nutrition: Bool, restoration: Bool, selectedCurvature: Curvature) {
+  init(calendarIdentifier: Calendar.Identifier, hydrate: Bool, nutrition: Bool, restoration: Bool, selectedCurvature: Curvature, initialDate: Date) {
     self.calendarIdentifier = calendarIdentifier
     self.hydrate = hydrate
     self.nutrition = nutrition
     self.restoration = restoration
     self.selectedCurvature = selectedCurvature
+    self.initialDate = initialDate
   }
   
   func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
     guard let date = calendar.date(from:dateComponents)
     else { return nil }
     
-    var month = calendar.component(.month, from: date)
+    let month = calendar.component(.month, from: date)
     
     if month != calendar.component(.month, from: currentDate){
       return nil
     }
     
-    if calendar.component(.day, from: date) % intervalDays != 1  {
+    if calendar.component(.day, from: date) % intervalDays != moduleComputed || calendar.component(.day, from: date) < calendar.component(.day, from: initialDate) {
       return nil
     }
     
@@ -154,6 +158,10 @@ final class CalendarCoordinator: NSObject, UICalendarViewDelegate {
       
       return 7 // day % 7 == 1
     }
+  }
+  
+  var moduleComputed: Int {
+    return calendar.component(.day, from: initialDate) % intervalDays
   }
 }
 
