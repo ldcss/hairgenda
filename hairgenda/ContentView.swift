@@ -13,91 +13,129 @@ struct ContentView: View {
   @State private var selectedStep: Step = .hydrate
   @State private var showPicker: Bool = false
   @State var shouldPresentSheet = false
-  @State private var hydrateDate: Date = Date.now
-  @State private var nutritionDate: Date = Date.now
-  @State private var restorationDate: Date = Date.now
-  
+  @State private var showImage: Bool = false
+  @State private var initialDate: Date = Date()
   @State private var hydrateSelected:Bool = false
   @State private var nutritionSelected:Bool = false
   @State private var restorationSelected:Bool = false
+  @State private var productValue: Decimal = 0.0
   
+  @State private var number: Double = 0
+  
+  var contentViewModel = ContentViewModel()
   
   var body: some View {
-    VStack{
-      Text("Hairgenda").font(.display).frame(maxHeight: 50)
-      ScrollView {
-        VStack{
-          VStack(alignment: .leading, spacing: 20) {
-            HStack {
-              Text("Curvatura").font(.system(size: 24, weight: .semibold, design: .rounded))
-              Spacer()
-              Menu {
-                Picker("Curvatura", selection: $selectedCurvature) {
-                  ForEach(Curvature.allCases) { curvature in
-                    Text(curvature.rawValue)
-                  }
-                }
-              } label: {
-                Text(selectedCurvature.rawValue)
-                  .padding()
-                  .frame(maxHeight: 30)
-                  .font(.system(size: 20, weight: .regular, design: .rounded))
-                  .foregroundStyle(.black)
-                  .background(Color.backgroundGray)
-                  .clipShape(RoundedRectangle(cornerRadius: 8))
-              }
-              .padding()
-              .frame(maxHeight: 30)
-            }
-            VStack(alignment: .leading, spacing: 12) {
-              Text("Etapas do cronograma").font(.system(size: 24, weight: .semibold, design: .rounded))
-              
-              Text("Selecione as etapas que estarão em seu cronograma!").font(.system(size: 16, weight: .semibold, design: .rounded))
-              //              Picker("Etapas", selection: $selectedStep) {
-              //                ForEach(Step.allCases) { step in
-              //                  Text(step.rawValue).foregroundColor(Color.pink)
-              //                }
-              //              }.pickerStyle(.segmented)
-              //                .colorMultiply(segmentedColor)
-              CustomCheckbox(CheckboxLabel: "Hidratação", isSelected: $hydrateSelected, popoverText: "A hidratação capilar repõe toda a água que seus fios perderam no decorrer dos dias.")
-              
-              CustomCheckbox(CheckboxLabel: "Nutrição", isSelected: $nutritionSelected, popoverText: "A nutrição age para devolver os nutrientes necessários para deixar os cabelos fortalecidos.")
-              
-              CustomCheckbox(CheckboxLabel: "Restauração", isSelected: $restorationSelected, popoverText: "A restauração capilar vai atuar para reconstituir a estrutura dos fios danificados.")
-            }
-            
-              CalendarView(canSelect: false, hydrateDate: $hydrateDate,  nutritionDate: $nutritionDate,
-                           restorationDate: $restorationDate)
-              .frame(height:400)
-            
-            HStack{
-              Spacer()
-              Button("Realizar cálculo mensal") {
-                shouldPresentSheet.toggle()
-              }
-              .frame(width: 220)
-              .font(.system(size: 18, weight: .bold, design: .rounded))
-              .padding()
-              .background(Color.purpleButton)
-              .foregroundStyle(Color.white)
-              .clipShape(RoundedRectangle(cornerRadius:14))
-              .onTapGesture {
-                withAnimation(.easeInOut) {
-                }
-              }
-              Spacer()
-            }
+    VStack(spacing: 8){
+      Spacer().frame(height: 50)
+      HStack{
+        Spacer()
+        Text("Hairgenda").font(.display).frame(maxHeight: 50)
+        Spacer()
+      }.frame(width: .infinity)
+      
+      VStack(alignment: .leading, spacing: 32) {
+        
+        VStack(alignment: .leading, spacing: 12){
+          HStack {
+            Text("Curvatura").font(.system(size: 24, weight: .semibold, design: .rounded))
             Spacer()
+            Menu {
+              Picker("Curvatura", selection: $selectedCurvature) {
+                ForEach(Curvature.allCases) { curvature in
+                  Text(curvature.rawValue)
+                }
+              }
+            } label: {
+              Text(selectedCurvature.rawValue)
+                .padding()
+                .frame(maxHeight: 30)
+                .font(.system(size: 20, weight: .regular, design: .rounded))
+                .foregroundStyle(.black)
+                .background(Color.backgroundGray)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+            }
+            .padding()
           }
+          
+          HStack{
+            Text("Descubra sua curvatura aqui!").font(.system(size: 16, weight: .semibold, design: .rounded))
+            
+            Button {
+              showImage.toggle()
+            } label: {
+              Image(systemName: "arrow.down.left.and.arrow.up.right")
+                .tint(Color.black)
+            }.popover(isPresented: $showImage, attachmentAnchor: .point(.trailing), arrowEdge: .bottom, content: {
+              Image("ImgCurvatures")
+                .resizable()
+                .scaledToFit()
+                .padding()
+                .presentationCompactAdaptation(.popover)
+                .frame(maxHeight: 250)
+            })
+            
+          }
+        }
+        
+        DatePicker("Início do cronograma", selection: $initialDate, displayedComponents: .date)
+          .font(.system(size: 24, weight: .semibold, design: .rounded))
+          .datePickerStyle(.compact)
+          .tint(Color.green)
+        
+        VStack(alignment: .leading, spacing: 12) {
+          Text("Etapas do cronograma").font(.system(size: 24, weight: .semibold, design: .rounded))
+          
+          Text("Selecione as etapas que estarão em seu cronograma!").font(.system(size: 16, weight: .semibold, design: .rounded))
+          
+          CustomCheckbox(CheckboxLabel: "Hidratação", isSelected: $hydrateSelected, popoverText: "A hidratação capilar repõe toda a água que seus fios perderam no decorrer dos dias.")
+          
+          CustomCheckbox(CheckboxLabel: "Nutrição", isSelected: $nutritionSelected, popoverText: "A nutrição age para devolver os nutrientes necessários para deixar os cabelos fortalecidos.")
+          
+          CustomCheckbox(CheckboxLabel: "Restauração", isSelected: $restorationSelected, popoverText: "A restauração capilar vai atuar para reconstituir a estrutura dos fios danificados.")
+        }
+        
+        VStack(alignment: .leading, spacing: 12){
+          Text("Valor total dos produtos")
+            .font(.system(size: 24, weight: .semibold, design: .rounded))
+          MoneyTextFieldView(amount: $productValue)
+        }
+        
+        VStack(alignment: .leading, spacing: 12){
+          Text("Tempo esperado de uso ")
+            .font(.system(size: 24, weight: .semibold, design: .rounded))
+          
+          Stepper("Número de dias: \(Int(number))",
+                  value: $number,
+                  in: 0...100,
+                  step: 1)
+          .font(.system(size: 16, weight: .semibold, design: .rounded))
+        }
+        
+        HStack{
+          Spacer()
+          Button("Realizar cálculo mensal") {
+            shouldPresentSheet.toggle()
+            
+          }
+          .frame(width: 220)
+          .font(.system(size: 18, weight: .bold, design: .rounded))
           .padding()
+          .background(Color.purpleButton)
+          .foregroundStyle(Color.white)
+          .clipShape(RoundedRectangle(cornerRadius:14))
+          Spacer()
         }
-        .sheet(isPresented: $shouldPresentSheet) {
-          print("Sheet dismissed!")
-        } content: {
-          SheetView()
-        }
+        Spacer()
       }
+      .padding()
+      .sheet(isPresented: $shouldPresentSheet) {
+        print("Sheet dismissed!")
+      } content: {
+        SheetView(isPresented: $shouldPresentSheet, selectedCurvature: $selectedCurvature, hydrate: $hydrateSelected, nutrition: $nutritionSelected, restoration: $restorationSelected)
+      }
+      
     }
+    
   }
   var segmentedColor: Color {
     switch selectedStep {
@@ -110,31 +148,8 @@ struct ContentView: View {
     }
   }
   
-  var stepPicker: some View {
-    switch selectedStep {
-    case .hydrate:
-      return DatePicker(selectedStep.rawValue, selection: $hydrateDate, displayedComponents: .date)
-        .font(.system(size: 24, weight: .semibold, design: .rounded))
-        .datePickerStyle(.compact)
-        .tint(segmentedColor)
-    case .nutrition:
-      return DatePicker(selectedStep.rawValue, selection: $nutritionDate, displayedComponents: .date)
-        .font(.system(size: 24, weight: .semibold, design: .rounded))
-        .datePickerStyle(.compact)
-        .tint(segmentedColor)
-    case .restoration:
-      return DatePicker(selectedStep.rawValue, selection: $restorationDate, displayedComponents: .date)
-        .font(.system(size: 24, weight: .semibold, design: .rounded))
-        .datePickerStyle(.compact)
-        .tint(segmentedColor)
-    }
-  }
 }
 
-struct SelectedDate {
-  var date: Date
-  var step: String
-}
 
 #Preview {
   ContentView()
