@@ -18,9 +18,12 @@ struct ContentView: View {
   @State private var hydrateSelected:Bool = false
   @State private var nutritionSelected:Bool = false
   @State private var restorationSelected:Bool = false
+  
   @State private var productValue: Decimal = 0.0
   
-  @State private var number: Double = 0
+  @State private var daysNumber: Double = 20
+  
+  @State private var result: Decimal = 0
   
   var contentViewModel = ContentViewModel()
   
@@ -104,9 +107,9 @@ struct ContentView: View {
           Text("Tempo esperado de uso ")
             .font(.system(size: 24, weight: .semibold, design: .rounded))
           
-          Stepper("Número de dias: \(Int(number))",
-                  value: $number,
-                  in: 0...100,
+          Stepper("Número de dias: \(Int(daysNumber))",
+                  value: $daysNumber,
+                  in: 0...90,
                   step: 1)
           .font(.system(size: 16, weight: .semibold, design: .rounded))
         }
@@ -114,6 +117,7 @@ struct ContentView: View {
         HStack{
           Spacer()
           Button("Realizar cálculo mensal") {
+            result = productValue / Decimal(daysNumber)
             shouldPresentSheet.toggle()
             
           }
@@ -131,7 +135,7 @@ struct ContentView: View {
       .sheet(isPresented: $shouldPresentSheet) {
         print("Sheet dismissed!")
       } content: {
-        SheetView(isPresented: $shouldPresentSheet, selectedCurvature: $selectedCurvature, hydrate: $hydrateSelected, nutrition: $nutritionSelected, restoration: $restorationSelected)
+        SheetView(isPresented: $shouldPresentSheet, selectedCurvature: $selectedCurvature, result: result, hydrate: $hydrateSelected, nutrition: $nutritionSelected, restoration: $restorationSelected)
       }
       
     }

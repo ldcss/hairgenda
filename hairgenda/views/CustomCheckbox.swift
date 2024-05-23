@@ -46,7 +46,7 @@ struct CustomCheckbox: View {
         Spacer()
         
         Group {
-          Toggle("Teste", isOn: $isSelected)
+          Toggle("Select Checkbox", isOn: $isSelected)
             .labelsHidden()
             .toggleStyle(.checklist)
             .font(.title)
@@ -55,7 +55,7 @@ struct CustomCheckbox: View {
       }
       HStack{
         Spacer()
-      }.frame(maxWidth:100)
+      }.frame(maxWidth:50)
     }
     .frame(maxWidth: .infinity)
   }

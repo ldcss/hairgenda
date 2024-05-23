@@ -15,21 +15,43 @@ struct SheetView: View {
   
   @Binding var selectedCurvature: Curvature
   
+  @State var result: Decimal
+  
+  
+  
   @Binding var hydrate: Bool
   @Binding var nutrition: Bool
   @Binding var restoration: Bool
   
+  var resultByTime: String {
+    switch timePeriod {
+    case .monthly:
+      return "Você irá gastar R$ \(result) esse mês!"
+    case .semiannually:
+      return "Você irá gastar R$ \(result * 6) esse mês!"
+    case .yearly:
+      return "Você irá gastar R$ \(result * 12) esse mês!"
+    }
+  }
+  
   var body: some View {
-    VStack{
+    HStack{
+      RoundedRectangle(cornerRadius: 20)
+        .foregroundStyle(.black)
+        .background(.black)
+        .padding()
+    }.frame(width:40)
+    
+    VStack(spacing: 8){
       Text("Período de cálculo").font(.system(size: 24, weight: .semibold, design: .rounded))
       Picker("Etapas", selection: $timePeriod) {
         ForEach(TimePeriod.allCases) { timePeriod in
           Text(timePeriod.rawValue)
         }
       }.pickerStyle(.segmented)
-      VStack(alignment: .center){
-        Text("Você irá gastar R$250 esse mês!")
-          .font(.system(size: 44, weight: .semibold, design: .rounded))
+      VStack(alignment: .center, spacing: 8){
+        Text(resultByTime)
+          .font(.system(size: 20, weight: .semibold, design: .rounded))
         
         HStack(spacing: 12){
           ChipView(systemImage: "drop", titleKey: "Hidratação", tint: Color.lightPink)
@@ -42,8 +64,6 @@ struct SheetView: View {
           .frame(height:500)
         
       }
-      
-      Spacer()
       
       Button("Voltar") {
         isPresented.toggle()
