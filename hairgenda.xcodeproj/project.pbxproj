@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A0EE61A2C05458A00A6E6DC /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0EE6192C05458A00A6E6DC /* ButtonView.swift */; };
+		6A0EE61C2C0548F200A6E6DC /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0EE61B2C0548F200A6E6DC /* CustomDatePickerView.swift */; };
+		6A4C7DBC2BF4DD5400AEB542 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DBB2BF4DD5400AEB542 /* StyleGuide.swift */; };
+		6A4C7DC22BF4E0A700AEB542 /* Curvatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DC12BF4E0A700AEB542 /* Curvatures.swift */; };
+		6A4C7DC42BF4F73000AEB542 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DC32BF4F73000AEB542 /* Step.swift */; };
+		6A4C7DCD2BFB7FFF00AEB542 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DCC2BFB7FFF00AEB542 /* CalendarView.swift */; };
+		6A4C7DD32BFCEDA600AEB542 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DD22BFCEDA600AEB542 /* SheetView.swift */; };
+		6A4C7DD72BFE193000AEB542 /* Toggle+CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DD62BFE193000AEB542 /* Toggle+CheckboxStyle.swift */; };
+		6A4C7DD92BFE1A8600AEB542 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C7DD82BFE1A8600AEB542 /* CustomCheckbox.swift */; };
+		6A6D89502BF4DC8900559FC4 /* hairgendaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D894F2BF4DC8900559FC4 /* hairgendaApp.swift */; };
+		6A6D89522BF4DC8900559FC4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D89512BF4DC8900559FC4 /* ContentView.swift */; };
+		6A6D89542BF4DC8A00559FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A6D89532BF4DC8A00559FC4 /* Assets.xcassets */; };
+		6A6D89572BF4DC8A00559FC4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A6D89562BF4DC8A00559FC4 /* Preview Assets.xcassets */; };
+		6AB951852BFE452E00F01351 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB951842BFE452E00F01351 /* TimePeriod.swift */; };
+		6AB951872BFE473700F01351 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB951862BFE473700F01351 /* ChipView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6A0EE6192C05458A00A6E6DC /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		6A0EE61B2C0548F200A6E6DC /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
+		6A4C7DBB2BF4DD5400AEB542 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		6A4C7DC12BF4E0A700AEB542 /* Curvatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curvatures.swift; sourceTree = "<group>"; };
+		6A4C7DC32BF4F73000AEB542 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		6A4C7DCC2BFB7FFF00AEB542 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		6A4C7DD22BFCEDA600AEB542 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		6A4C7DD62BFE193000AEB542 /* Toggle+CheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle+CheckboxStyle.swift"; sourceTree = "<group>"; };
+		6A4C7DD82BFE1A8600AEB542 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
+		6A6D894C2BF4DC8900559FC4 /* hairgenda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hairgenda.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6D894F2BF4DC8900559FC4 /* hairgendaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hairgendaApp.swift; sourceTree = "<group>"; };
+		6A6D89512BF4DC8900559FC4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6A6D89532BF4DC8A00559FC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6A6D89562BF4DC8A00559FC4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6AB951842BFE452E00F01351 /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
+		6AB951862BFE473700F01351 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6A6D89492BF4DC8900559FC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A4C7DC02BF4E08000AEB542 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				6A4C7DC12BF4E0A700AEB542 /* Curvatures.swift */,
+				6AB951842BFE452E00F01351 /* TimePeriod.swift */,
+				6A4C7DC32BF4F73000AEB542 /* Step.swift */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		6A4C7DC52BF6453700AEB542 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				6A4C7DCC2BFB7FFF00AEB542 /* CalendarView.swift */,
+				6A4C7DD62BFE193000AEB542 /* Toggle+CheckboxStyle.swift */,
+				6A0EE6192C05458A00A6E6DC /* ButtonView.swift */,
+				6A4C7DD22BFCEDA600AEB542 /* SheetView.swift */,
+				6A4C7DD82BFE1A8600AEB542 /* CustomCheckbox.swift */,
+				6A0EE61B2C0548F200A6E6DC /* CustomDatePickerView.swift */,
+				6AB951862BFE473700F01351 /* ChipView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		6A6D89432BF4DC8900559FC4 = {
+			isa = PBXGroup;
+			children = (
+				6A6D894E2BF4DC8900559FC4 /* hairgenda */,
+				6A6D894D2BF4DC8900559FC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6A6D894D2BF4DC8900559FC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A6D894C2BF4DC8900559FC4 /* hairgenda.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A6D894E2BF4DC8900559FC4 /* hairgenda */ = {
+			isa = PBXGroup;
+			children = (
+				6A6D894F2BF4DC8900559FC4 /* hairgendaApp.swift */,
+				6A4C7DC52BF6453700AEB542 /* views */,
+				6A6D89512BF4DC8900559FC4 /* ContentView.swift */,
+				6A4C7DBB2BF4DD5400AEB542 /* StyleGuide.swift */,
+				6A4C7DC02BF4E08000AEB542 /* types */,
+				6A6D89532BF4DC8A00559FC4 /* Assets.xcassets */,
+				6A6D89552BF4DC8A00559FC4 /* Preview Content */,
+			);
+			path = hairgenda;
+			sourceTree = "<group>";
+		};
+		6A6D89552BF4DC8A00559FC4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6A6D89562BF4DC8A00559FC4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6A6D894B2BF4DC8900559FC4 /* hairgenda */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A6D895A2BF4DC8A00559FC4 /* Build configuration list for PBXNativeTarget "hairgenda" */;
+			buildPhases = (
+				6A6D89482BF4DC8900559FC4 /* Sources */,
+				6A6D89492BF4DC8900559FC4 /* Frameworks */,
+				6A6D894A2BF4DC8900559FC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = hairgenda;
+			productName = hairgenda;
+			productReference = 6A6D894C2BF4DC8900559FC4 /* hairgenda.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6A6D89442BF4DC8900559FC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					6A6D894B2BF4DC8900559FC4 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 6A6D89472BF4DC8900559FC4 /* Build configuration list for PBXProject "hairgenda" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6A6D89432BF4DC8900559FC4;
+			productRefGroup = 6A6D894D2BF4DC8900559FC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6A6D894B2BF4DC8900559FC4 /* hairgenda */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6A6D894A2BF4DC8900559FC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A6D89572BF4DC8A00559FC4 /* Preview Assets.xcassets in Resources */,
+				6A6D89542BF4DC8A00559FC4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6A6D89482BF4DC8900559FC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A6D89522BF4DC8900559FC4 /* ContentView.swift in Sources */,
+				6A4C7DD72BFE193000AEB542 /* Toggle+CheckboxStyle.swift in Sources */,
+				6A0EE61A2C05458A00A6E6DC /* ButtonView.swift in Sources */,
+				6AB951852BFE452E00F01351 /* TimePeriod.swift in Sources */,
+				6AB951872BFE473700F01351 /* ChipView.swift in Sources */,
+				6A4C7DCD2BFB7FFF00AEB542 /* CalendarView.swift in Sources */,
+				6A4C7DC42BF4F73000AEB542 /* Step.swift in Sources */,
+				6A6D89502BF4DC8900559FC4 /* hairgendaApp.swift in Sources */,
+				6A4C7DBC2BF4DD5400AEB542 /* StyleGuide.swift in Sources */,
+				6A4C7DD92BFE1A8600AEB542 /* CustomCheckbox.swift in Sources */,
+				6A4C7DD32BFCEDA600AEB542 /* SheetView.swift in Sources */,
+				6A4C7DC22BF4E0A700AEB542 /* Curvatures.swift in Sources */,
+				6A0EE61C2C0548F200A6E6DC /* CustomDatePickerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6A6D89582BF4DC8A00559FC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6A6D89592BF4DC8A00559FC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6A6D895B2BF4DC8A00559FC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"hairgenda/Preview Content\"";
+				DEVELOPMENT_TEAM = N3VF3GUXQY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucasd.hairgenda;
+				PRODUCT_NAME = hairgenda;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6A6D895C2BF4DC8A00559FC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"hairgenda/Preview Content\"";
+				DEVELOPMENT_TEAM = N3VF3GUXQY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucasd.hairgenda;
+				PRODUCT_NAME = hairgenda;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A6D89472BF4DC8900559FC4 /* Build configuration list for PBXProject "hairgenda" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A6D89582BF4DC8A00559FC4 /* Debug */,
+				6A6D89592BF4DC8A00559FC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A6D895A2BF4DC8A00559FC4 /* Build configuration list for PBXNativeTarget "hairgenda" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A6D895B2BF4DC8A00559FC4 /* Debug */,
+				6A6D895C2BF4DC8A00559FC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6A6D89442BF4DC8900559FC4 /* Project object */;
+}
